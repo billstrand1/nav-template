@@ -17,7 +17,7 @@ services:
 startup: {type: form, module: Home}
 package_name: Nav_Template
 allow_embedding: true
-name: Clone of Nav Template
+name: Nav Template
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 metadata: {}
 startup_form: Home
@@ -92,7 +92,7 @@ db_schema:
       type: link_single
       target: users
     - name: act_date_time
-      admin_ui: {width: 200}
+      admin_ui: {width: 166.26087}
       type: datetime
   features:
     title: features
@@ -122,10 +122,10 @@ db_schema:
       type: link_single
       target: activities
     - name: sign_up_name
-      admin_ui: {width: 200}
+      admin_ui: {width: 122.26087000000001}
       type: string
     - name: participation_date_time
-      admin_ui: {width: 120.26087000000001}
+      admin_ui: {width: 189.038044}
       type: datetime
     - name: comment
       admin_ui: {width: 200}
