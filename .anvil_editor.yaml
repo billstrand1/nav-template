@@ -1,0 +1,39 @@
+unique_ids:
+  forms:
+    Home.Components.ContactsComponent.ContactsRowTemplate: 5JVLIA443YNOLUUSE7HZRQQEIVLHSSII
+    Home.Components.HelpComponentLoggedIn: CKZJQZRDT4U66IIIFB3ZVBSTJBVHVRPP
+    Home.Components.ActivitiesSummaryComponent: 7XDQA25MDPZM2C5NJITYFEBGIVFMU5PW
+    Home.Components.HelpComponentLoggedOut: VVXD4ZXOG43YACBIWXCRD7UJTYGKNBWO
+    Home.Components.MapsComponent: PNROA5E6P7Q746ZR2XIQC2Y26V54I4TB
+    Home.Components.ActivitiesSummaryComponent.PastActivitiesTemplate: BHGEJ45DMHLFFWUL2JZHKVWGM5OHAPWA
+    Home.Components.ActivitiesSignupComponent.FutureActivitiesSignupTemplate.ItemTemplate1: IKW4IF2BR3IIH5TCGQHTQV22FCYMISRN
+    Home.HomeAnonComponent: FXZUYKWK4OWT72Q4ZVLHEKXWIIPKVS2A
+    Home.Components.TravelComponent.TravelAdd: 5PXYODVGMBDJUKYL3UUR4F2XZG3HPFH3
+    Home.Components.TravelComponent.RowTemplate2: OCRKOHO4WHLMISCBSWEM37BVUFCDSMH4
+    Home.Components.ActivitiesSignupComponent.FutureActivitiesSignupTemplate: CGBUUAPSAR7ZVYYK623ELRJSGV5VSLCL
+    Home.Components.ActivitiesSummaryComponent.ActivitiesAddTemplate: Y3DJRU2SAY5JSWMJYX7PMMBAQPI7M7N2
+    Home.Components.ActivitiesSummaryComponent.FutureActivitiesTemplate: GMBKN6RFEBMWQA7K547DT5N6LRBJKJDC
+    Home.Components.AdminComponent: N7IQUJGKBDULONURQAXJ2WZ5VPJEROWU
+    Home.Components.ContactsComponent.EmailList: LUAU4ROLDXAHVMGSTQG6D4MW5OMYQCZJ
+    Home.Components.ActivitiesSignupComponent: OXPBZICZ4DLVYAG2FXW2OOSCNLT3FFAX
+    Home.Components.ActivitiesSummaryComponent.ActivitiesEditTemplate: D5CKQZZVIVUZ7MALL4Z5F5ACQN5W5FGT
+    Home.Components.TravelComponent: NDML5T7YI7YVC4OH2RX7GGJESOMDPLSP
+    Home.Components.ContactsComponent: 4T4AOJNZRCQTO3NKR3APCXFCN72DAQMW
+    Home.HomeDetailsComponent: BQS5BRGUCU2EIWLNJJBTPFTBEVXD3FV4
+    Home: 2EUSUHXQTGG7X467O2KVVRGSAP3UIQ76
+  modules:
+    Globals: 34GCXTXWA23UQ7RUOMPIX6BYX3QGPP32
+    Home.Components: ZIAY2J2MJCYNI6YNFP2VJ32ZZMD4HDCU
+    data_access: VM4G7J7HRV5MM55HLA7UV55JFFO2RFN4
+    navigation: ZSI73NMRKHQD6UQJMVLIQS56SADOX5GB
+  server_modules:
+    _force_login: CI42HXWSPCUUBFS4IUEFSEDX6HRZ6F42
+    activities: 5E66FYNOGK2BTX5MQ6IEWHU4TDL6OEIO
+    admin: MXHMCJ6PZP5KVXTZLYL5ZYOTXPGP5SQC
+    contacts: BQ7HBYOC32WH6K335WBFYP6MFS3ZBXP3
+    help: QFYHTGTXNKTYANIG3SF2PGCFCT6RXPDW
+    import_spreadsheet: ER3MHTTRCILYAO3KVZHKQXIALSBJFE2R
+    travel: O7L57FOA7W3DCKGABOFNQKR3PYCBJ4AR
+  assets:
+    standard-page.html: NBF7PDKEGEXGDR2RYKG3GJADPHTNJ7QR
+    theme.css: 53JS5SIVUNUAJFEJNXJVCNWSKULEQSQ2

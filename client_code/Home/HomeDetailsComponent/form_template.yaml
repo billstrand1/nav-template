@@ -1,0 +1,33 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: false,
+    text: 'You''re Logged In, this page is still In Work
+
+      ', font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'RZCORB,PVFYRM'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: menlo, spacing_above: none, icon_align: left,
+    spacing_below: none, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_travel_entry
+  layout_properties: {grid_position: 'SJGBRM,NKIGBW'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: menlo, spacing_above: none, icon_align: left,
+    spacing_below: none, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_activities
+  layout_properties: {grid_position: 'ZZQUPA,DGAELW'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: 10, font: menlo, spacing_above: none, icon_align: left, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_activities_detail
+  layout_properties: {grid_position: 'QUZTGT,UEGITV'}
+is_package: true

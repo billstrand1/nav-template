@@ -1,0 +1,166 @@
+dependencies:
+- app_id: C6ZZPAPN4YYF5NVJ
+  version: {dev: false}
+- app_id: J7WAES5F2O3IZ5FW
+  version: {dev: false}
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: false, enable_automatically: false, use_email: true,
+    confirm_email: false}
+  server_config: {user_table: users}
+- source: /runtime/services/anvil/email.yml
+  client_config: {}
+  server_config: {}
+startup: {type: form, module: Home}
+package_name: Nav_Template
+allow_embedding: true
+name: Clone of Nav Template
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+metadata: {}
+startup_form: Home
+db_schema:
+  users:
+    title: Users
+    client: none
+    server: full
+    columns:
+    - name: first_name
+      admin_ui: {width: 84.521742}
+      type: string
+    - name: last_name
+      admin_ui: {width: 76.513586}
+      type: string
+    - name: email
+      admin_ui: {width: 200}
+      type: string
+    - name: cell
+      admin_ui: {width: 112.26086950302124}
+      type: string
+    - name: enabled
+      admin_ui: {width: 100}
+      type: bool
+    - name: admin
+      admin_ui: {width: 90.26086950302124}
+      type: bool
+    - name: spouse
+      admin_ui: {width: 114.26087000000001}
+      type: link_single
+      target: users
+    - name: couple_name
+      admin_ui: {width: 131.26087}
+      type: string
+    - name: password_hash
+      admin_ui: {width: 200}
+      type: string
+    - name: last_login
+      admin_ui: {width: 200}
+      type: datetime
+    - name: n_password_failures
+      admin_ui: {width: 200}
+      type: number
+    - name: remembered_logins
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: confirmed_email
+      admin_ui: {width: 200}
+      type: bool
+  activities:
+    title: activities
+    client: search
+    server: full
+    columns:
+    - name: activity
+      admin_ui: {width: 200}
+      type: string
+    - name: comments
+      admin_ui: {width: 490}
+      type: string
+    - name: golf
+      admin_ui: {width: 79}
+      type: bool
+    - name: dinner
+      admin_ui: {width: 82}
+      type: bool
+    - name: other
+      admin_ui: {width: 78}
+      type: bool
+    - name: owner
+      admin_ui: {width: 200}
+      type: link_single
+      target: users
+    - name: act_date_time
+      admin_ui: {width: 200}
+      type: datetime
+  features:
+    title: features
+    client: none
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 100}
+      type: string
+    - name: enabled
+      admin_ui: {width: 116}
+      type: bool
+    - name: order_of_menu_items
+      admin_ui: {width: 91}
+      type: number
+  participation:
+    title: participation
+    client: search
+    server: full
+    columns:
+    - name: participant
+      admin_ui: {width: 133.26087}
+      type: link_single
+      target: users
+    - name: activity
+      admin_ui: {width: 186.51903299999998}
+      type: link_single
+      target: activities
+    - name: sign_up_name
+      admin_ui: {width: 200}
+      type: string
+    - name: participation_date_time
+      admin_ui: {width: 120.26087000000001}
+      type: datetime
+    - name: comment
+      admin_ui: {width: 200}
+      type: string
+  travel:
+    title: travel
+    client: search
+    server: full
+    columns:
+    - name: participant
+      admin_ui: {width: 200}
+      type: link_single
+      target: users
+    - name: arrive
+      admin_ui: {width: 200}
+      type: date
+    - name: depart
+      admin_ui: {width: 200}
+      type: date
+  comments:
+    title: comments
+    client: none
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+    - name: email
+      admin_ui: {width: 200}
+      type: string
+    - name: comments
+      admin_ui: {width: 200}
+      type: string
+    - name: created
+      admin_ui: {width: 200}
+      type: datetime
+uplink_visible: true
+renamed: true

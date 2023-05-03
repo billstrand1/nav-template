@@ -1,0 +1,33 @@
+components:
+- type: Label
+  properties: {}
+  name: label_1
+  layout_properties: {column: HGJHIN}
+  data_bindings:
+  - {property: text, code: 'self.item[''act_date_time''].strftime("%a %b %d ''%y,
+      %-I:%M %p")'}
+- type: Label
+  properties: {}
+  name: label_2
+  layout_properties: {column: JNYMFX}
+  data_bindings:
+  - {property: text, code: 'f" [{self.item[''owner''][''first_name'']}]  " +self.item[''comments'']'}
+- type: Link
+  properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#77bb41',
+    visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+    spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: 'fa:pencil'}
+  name: link_edit
+  layout_properties: {column: WIZXTK}
+  event_bindings: {click: link_edit_click}
+- type: Link
+  properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#ff2600',
+    visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+    spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: 'fa:trash-o'}
+  name: link_delete
+  layout_properties: {column: UQVJXG}
+  event_bindings: {click: link_delete_click}
+container:
+  type: DataRowPanel
+  event_bindings: {}

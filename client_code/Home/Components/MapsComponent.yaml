@@ -1,0 +1,17 @@
+components:
+- type: Label
+  properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+    visible: false, text: 'Maps Component
+
+
+      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'ISYJBT,FXAURG'}
+- type: form:J7WAES5F2O3IZ5FW:IFrame
+  properties: {url: 'https://publish.smartsheet.com/fb1d082a61e746df953dfc31623a3b35'}
+  name: i_frame_1
+  layout_properties: {grid_position: 'EEEBLS,GHLQRX'}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}

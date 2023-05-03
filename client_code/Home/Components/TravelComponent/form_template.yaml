@@ -1,0 +1,46 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: Label
+  properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: Travel Summary, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'HBUAHP,LONBGF'}
+- type: Button
+  properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: Add Travel Schedule, font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '',
+    bold: false, underline: false, icon: ''}
+  name: btn_add_travel
+  layout_properties: {grid_position: 'HBUAHP,DWSQPG'}
+  event_bindings: {click: btn_add_travel_click}
+- type: DataGrid
+  properties:
+    role: tonal-data-grid
+    columns:
+    - {id: RIDXWM, title: Name, data_key: ''}
+    - {id: PKLUQD, title: Arrive, data_key: arrive}
+    - {id: NQATXJ, title: Depart, data_key: depart}
+    - {id: PSHPNZ, title: Delete, data_key: column_2, width: '70'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_1
+  layout_properties: {grid_position: 'PAIRMT,UTQCXN'}
+  components:
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: Home.Components.TravelComponent.RowTemplate2}
+    name: repeating_panel_travel
+    layout_properties: {}
+is_package: true
