@@ -83,12 +83,21 @@ def delete_activity(activity):
 #       activity.delete()
 #     Globals.all_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = get_all_future_activities()
 
-
+#billstrand1@yahoo.com
 @anvil.server.callable
 def edit_activity(activity, activity_dict):
     if app_tables.activities.has_row(activity):
       print('activities: edit_activity called')
       activity.update(**activity_dict)  
+      
+      #Need to update Participation date / time also:
+      print(f"Activity Updated, dict date= {activity_dict['act_date_time']}")
+      new_date = activity_dict['act_date_time']
+      participants_results = app_tables.participation.search(activity=activity)
+      for participant in participants_results:
+        print(f"Changing date for {participant['participant']['first_name']} ")
+        participant['participation_date_time'] = new_date
+      
     else:
       raise Exception("Activity does not exist")
 #     Globals.all_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = get_all_future_activities()
