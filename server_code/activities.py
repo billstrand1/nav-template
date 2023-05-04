@@ -84,6 +84,7 @@ def delete_activity(activity):
 #     Globals.all_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = get_all_future_activities()
 
 #billstrand1@yahoo.com
+#'act_date_time': datetime.datetime(2023, 7, 17, 9, 0, tzinfo=<anvil.tz.tzoffset (-5.0 hour offset)>)  Need to get the offset fixed
 @anvil.server.callable
 def edit_activity(activity, activity_dict):
     if app_tables.activities.has_row(activity):
