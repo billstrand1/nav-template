@@ -97,7 +97,8 @@ def edit_activity(activity, activity_dict):
       participants_results = app_tables.participation.search(activity=activity)
       for participant in participants_results:
         print(f"Changing date for {participant['participant']['first_name']} ")
-        participant['participation_date_time'] = new_date
+#         participant['participation_date_time'] = new_date
+        participant['participation_date_time'] = activity_dict['act_date_time']
       
     else:
       raise Exception("Activity does not exist")
