@@ -1,3 +1,4 @@
+correct_dependency_ids: {C6ZZPAPN4YYF5NVJ: C6ZZPAPN4YYF5NVJ, J7WAES5F2O3IZ5FW: J7WAES5F2O3IZ5FW}
 dependencies:
 - app_id: C6ZZPAPN4YYF5NVJ
   version: {dev: false}
@@ -92,7 +93,7 @@ db_schema:
       type: link_single
       target: users
     - name: act_date_time
-      admin_ui: {width: 166.26087}
+      admin_ui: {width: 277.25}
       type: datetime
   features:
     title: features
@@ -125,7 +126,7 @@ db_schema:
       admin_ui: {width: 122.26087000000001}
       type: string
     - name: participation_date_time
-      admin_ui: {width: 189.038044}
+      admin_ui: {width: 346.03125}
       type: datetime
     - name: comment
       admin_ui: {width: 200}

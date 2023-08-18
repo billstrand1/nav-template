@@ -129,14 +129,63 @@ def add_participant(activity, participant, sign_up_name, spouse, date_time, comm
 
 #--------TODO: 
 #. From HomeDetails:
+# @anvil.server.callable  
+# def get_user_or_spouse_activities_str(user, spouse): 
+#   #Returns 2 messages to display on the HomeDetail page
+#   # 
+# #   return 'Message 1', 'Message 2'
+#     either_user_or_spouse_activities = app_tables.participation.search(
+#       tables.order_by("participation_date_time", ascending=True), 
+#       participant=q.any_of(user, spouse))
+#     if len(either_user_or_spouse_activities) > 0:
+#       print('either_user_or_spouse_activities > 0 in ACTIVITIES: CLIENT CODE')
+#       message_activities = 'You have signed up for the following activities:'
+#     else:
+#       message_activities = 'You have not signed up for any Activities, please check the Activities link.'
+      
+#     message_activities_detail = ''
+    
+# # Need to format time, then display the activities in order of date.
+# # Also need to delete 'participation' before deleting 'activities'
+# # Also need to do FUTURE activities only.
+
+#     users_activities = []
+#     date_list = []
+#     name_list = []
+#     activity_list = []
+#     comment_list = []
+#     for activity in either_user_or_spouse_activities:
+#       #go thru participation table and pull out activities
+#       act_date_time = activity['activity']['act_date_time']
+#       act_date_time_str = act_date_time.strftime("%a %b %d '%y, %-I:%M %p") + ' | '
+#       activity_name = activity['activity']['activity'] + ' | '
+#       sign_up_name = activity['sign_up_name'] + ' | '
+#       comment = activity['comment']
+# #       users_activities += [act_date_time_str, activity_name, sign_up_name]
+#       date_list.append(act_date_time_str)
+#       name_list.append(sign_up_name)
+#       activity_list.append(activity_name)
+#       comment_list.append(comment)
+# #     print(users_activities)  
+    
+#     activities_df = pd.DataFrame({'Name': name_list, 'Date / Time': date_list, 'Activity': activity_list, 'Your Comment': comment_list})
+#     if len(activities_df) > 0:
+#       message_activities_detail = activities_df.to_string(index=False, justify='center', col_space=14)
+  
+#     return message_activities, message_activities_detail
+# #     self.label_activities_detail.text = users_activities
+    
+#COPIED FROM PETOSKEY-NEW
 @anvil.server.callable  
 def get_user_or_spouse_activities_str(user, spouse): 
   #Returns 2 messages to display on the HomeDetail page
-  # 
+    print(f"Date today is {date.today()}")
 #   return 'Message 1', 'Message 2'
     either_user_or_spouse_activities = app_tables.participation.search(
-      tables.order_by("participation_date_time", ascending=True), 
+      tables.order_by("participation_date_time", ascending=True),
+      participation_date_time=q.greater_than_or_equal_to(date.today()),
       participant=q.any_of(user, spouse))
+  
     if len(either_user_or_spouse_activities) > 0:
       print('either_user_or_spouse_activities > 0 in ACTIVITIES: CLIENT CODE')
       message_activities = 'You have signed up for the following activities:'
@@ -174,6 +223,5 @@ def get_user_or_spouse_activities_str(user, spouse):
   
     return message_activities, message_activities_detail
 #     self.label_activities_detail.text = users_activities
-      
-    
+         
                                    
