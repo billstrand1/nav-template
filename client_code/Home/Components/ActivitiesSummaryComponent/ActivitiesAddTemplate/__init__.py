@@ -45,6 +45,14 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
 
     print(f" ActivitiesAdd: time = {self.input_activity_date_picker.date.time()}")
     
+    #From Petoskey-New:
+    #Try update to remove tzinfo:
+    print('removing tzinfo')
+    activity_date = self.input_activity_date_picker.date
+    print(f"before: {activity_date}")
+    activity_date = activity_date.replace(tzinfo=None)
+    print(f"after: {activity_date}")      
+    
     anvil.server.call('add_activity', self.input_activity_title.text, 
                              self.input_activity_comments.text,
                              self.input_activity_date_picker.date,
@@ -54,6 +62,8 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
                              self.activity_user)
     
     Globals.all_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = anvil.server.call('get_all_future_activities')
+#     Globals.all_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = anvil.server.launch_background_task('get_all_future_activities')
+    
     navigation.go_activities()
   
   def sync_data(self):

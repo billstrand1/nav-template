@@ -25,6 +25,7 @@ def update_activity(activity, activity_dict):
 
 
 @anvil.server.callable
+@anvil.server.background_task
 def get_all_future_activities(): 
   print('activities: get_all_future_activities called')
   all_future_activities = app_tables.activities.search(

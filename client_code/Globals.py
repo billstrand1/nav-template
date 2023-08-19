@@ -7,6 +7,8 @@ from anvil.tables import app_tables
 
 print('running Globals....')
 all_future_activities, future_golf, future_dinners, future_other = anvil.server.call('get_all_future_activities')
+# all_future_activities, future_golf, future_dinners, future_other = anvil.server.launch_background_task('get_all_future_activities')
+
 all_past_activities = anvil.server.call('get_past_activities')
 
 
