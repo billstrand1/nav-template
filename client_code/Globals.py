@@ -9,6 +9,8 @@ print('running Globals....')
 all_future_activities, future_golf, future_dinners, future_other = anvil.server.call('get_all_future_activities')
 all_past_activities = anvil.server.call('get_past_activities')
 
+
+
 '''
 .strftime("%a %b %d '%y")  #day, month, day, 'year
 
