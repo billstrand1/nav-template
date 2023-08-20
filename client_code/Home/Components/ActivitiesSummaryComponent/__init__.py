@@ -25,7 +25,7 @@ class ActivitiesSummaryComponent(ActivitiesSummaryComponentTemplate):
     print(user['first_name'])
     self.refresh_data_bindings()
     
-#     Globals.all_future_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = anvil.server.call('get_all_future_activities')
+    Globals.all_future_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = anvil.server.call('get_all_future_activities')
     self.repeating_panel_activites.items = Globals.all_future_activities 
 
     self.repeating_panel_activites.set_event_handler('x-delete-activity', self.delete_activity)
