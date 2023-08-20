@@ -50,11 +50,12 @@ class FutureActivitiesSignupTemplate(FutureActivitiesSignupTemplateTemplate):
 
 # Need to Capture Comment, send to DT, Display on RP.
     
+    #If they're not single
     if user['spouse']:
       user_name = user['first_name']
       spouse = user['spouse']
       user_spouse = user['spouse']['first_name']
-      user_both = user['couple_name']     
+      user_both = user['couple_name']    
       
       signup_message = f"Enter comments here."    
       t = TextBox(placeholder=signup_message, type="text")
@@ -66,7 +67,9 @@ class FutureActivitiesSignupTemplate(FutureActivitiesSignupTemplateTemplate):
                  (user_spouse, user_spouse),
                  (user_both, user_both)
                ])
+    #else they're single
     else: sign_up_name = user['couple_name']
+    
     print(f"The user chose {sign_up_name}")
     comment = t.text
     date_time = self.item['act_date_time']
