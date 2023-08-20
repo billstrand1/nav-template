@@ -200,7 +200,9 @@ def get_all_activities_and_participants():
 #     print(activity)
     comments = r['comments']
     owner = f"[{r['owner']['first_name']}]"
-    activity_text += f"\n{date_and_time} {activity} \n{owner} {comments} \n"
+    activity_text += f"\n{date_and_time} {activity} {owner} \n"
+    if comments:
+      activity_text += f"{comments} \n"
     participants_in_r = app_tables.participation.search(activity=r)
 
     if len(participants_in_r) > 0:
