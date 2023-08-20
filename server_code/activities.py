@@ -201,3 +201,39 @@ def get_user_or_spouse_activities_str(user, spouse):
     
 #   return activity_text
 
+@anvil.server.callable
+def get_all_activities_and_participants():    
+  activity_text = ''
+  #     act_date_time_str = act_date_time.strftime("%a %b %d '%y, %-I:%M %p")
+
+  all_activities = app_tables.activities.search(tables.order_by("act_date_time", ascending=True), act_date_time=q.greater_than_or_equal_to(date.today()))
+  activities_list = [
+      {
+      'date time': r['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p"),
+      'activity': r['activity'],
+      'comments': r['comments'],
+      'owner': r['owner']['first_name']
+      }
+#   for r in Globals.all_future_activities]
+    for r in all_activities]
+ 
+## NEED TO FIX THE 
+  #     act_df = pd.DataFrame.from_dict(activities_dict)
+  activities_df = pd.DataFrame.from_dict(activities_list)#, columns=['Date', 'Activity', 'Comments', 'Owner'])
+
+#   activities_df = pd.DataFrame.from_dict(activities_list, columns=['Date', 'Activity', 'Comments', 'Owner'])
+  #     for activity in Globals.all_future_activities:
+  #       act_date_time_str = activity['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p")
+
+  #       current_activity = f"{act_date_time_str} {activity['activity']} {activity['comments']} [{activity['owner']['first_name']}] \n"
+
+  #       activity_text += current_activity
+
+  #         for participant in 
+
+  #     return activity_text
+  activities_df.to_string(index=False, justify='center', col_space=14)
+  act_str = activities_df.to_string(index=False, justify='center', col_space=14)
+  return act_str
+
+
