@@ -145,6 +145,7 @@ def get_user_or_spouse_activities_str(user, spouse):
   #Returns 2 messages to display on the HomeDetail page
     print(f"Date today is {date.today()}")
 #   return 'Message 1', 'Message 2'
+
     either_user_or_spouse_activities = app_tables.participation.search(
       tables.order_by("participation_date_time", ascending=True),
       participation_date_time=q.greater_than_or_equal_to(date.today()),
@@ -186,40 +187,46 @@ def get_user_or_spouse_activities_str(user, spouse):
       message_activities_detail = activities_df.to_string(index=False, justify='center', col_space=14)
   
     return message_activities, message_activities_detail
-#     self.label_activities_detail.text = users_activities
          
-                                   
-#Work on displaying all activities / all participants on home page.
-# @anvil.server.callable
-# def get_all_activities_and_participants():
-  
-  
-#   activity_text = ''
-#   for activity in Globals.all_future_activities:
-#     print(f"Activity: {activity['activity']}")
-#     activity_text += activity['activity']
-    
-#   return activity_text
 
 @anvil.server.callable
 def get_all_activities_and_participants():    
-  activity_text = ''
-  #     act_date_time_str = act_date_time.strftime("%a %b %d '%y, %-I:%M %p")
+  activity_text = 'Summary of Activities and Participants: \n'  
+  all_future_activities = app_tables.activities.search(tables.order_by("act_date_time", ascending=True), act_date_time=q.greater_than_or_equal_to(date.today()))
+  
+  for r in all_future_activities:
+    date_and_time = r['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p")
+    activity = r['activity']
+#     print(activity)
+    comments = r['comments']
+    owner = f"[{r['owner']['first_name']}]"
+    activity_text += f"\n{date_and_time} {activity} {owner} {comments} \n"
+    participants_in_r = app_tables.participation.search(activity=r)
 
-  all_activities = app_tables.activities.search(tables.order_by("act_date_time", ascending=True), act_date_time=q.greater_than_or_equal_to(date.today()))
-  activities_list = [
-      {
-      'date time': r['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p"),
-      'activity': r['activity'],
-      'comments': r['comments'],
-      'owner': r['owner']['first_name']
-      }
-#   for r in Globals.all_future_activities]
-    for r in all_activities]
+    if len(participants_in_r) > 0:
+      for s in participants_in_r:
+        activity_text += f"   {s['sign_up_name']}"
+        if s['comment']:
+          activity_text += f"  ({s['comment']})\n"
+        else: activity_text += '\n'
+    else:
+        activity_text += f"   No sign-ups yet. \n"
+        
+  return activity_text    
+  
+#   activities_list = [
+#       {
+#       'date time': r['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p"),
+#       'activity': r['activity'],
+#       'comments': r['comments'],
+#       'owner': r['owner']['first_name']
+#       }
+# #   for r in Globals.all_future_activities]
+#     for r in all_activities]
  
-## NEED TO FIX THE 
+## NEED TO FIX THE OUTPUT
   #     act_df = pd.DataFrame.from_dict(activities_dict)
-  activities_df = pd.DataFrame.from_dict(activities_list)#, columns=['Date', 'Activity', 'Comments', 'Owner'])
+#   activities_df = pd.DataFrame.from_dict(activities_list)#, columns=['Date', 'Activity', 'Comments', 'Owner'])
 
 #   activities_df = pd.DataFrame.from_dict(activities_list, columns=['Date', 'Activity', 'Comments', 'Owner'])
   #     for activity in Globals.all_future_activities:
@@ -231,9 +238,9 @@ def get_all_activities_and_participants():
 
   #         for participant in 
 
-  #     return activity_text
-  activities_df.to_string(index=False, justify='center', col_space=14)
-  act_str = activities_df.to_string(index=False, justify='center', col_space=14)
-  return act_str
+      
+#   activities_df.to_string(index=False, justify='center', col_space=14)
+#   act_str = activities_df.to_string(index=False)#, justify='center')#, col_space=14)
+#   return act_str
 
 

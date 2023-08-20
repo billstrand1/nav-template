@@ -53,40 +53,9 @@ class HomeDetailsComponent(HomeDetailsComponentTemplate):
     self.label_activities.text = activities_message_1
     self.label_activities_detail.text = activities_message_2
     
-#     self.label_all_activitites.text = self.get_all_activities_and_participants()
     self.label_all_activitites.text = anvil.server.call('get_all_activities_and_participants')
 
-#   def get_all_activities_and_participants(self):    
-#     activity_text = ''
-# #     act_date_time_str = act_date_time.strftime("%a %b %d '%y, %-I:%M %p")
-
-#     activities_list = [
-#         {
-#         'date time': r['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p"),
-#         'activity': r['activity'],
-#         'comments': r['comments'],
-#         'owner': r['owner']['first_name']
-#         }
-#     for r in Globals.all_future_activities]
-      
-
-# #     act_df = pd.DataFrame.from_dict(activities_dict)
     
-#     act_df = pd.DataFrame.from_records(activities_dict, orient='index', columns=['Date', 'Activity', 'Comments', 'Owner'])
-# #     for activity in Globals.all_future_activities:
-# #       act_date_time_str = activity['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p")
-
-# #       current_activity = f"{act_date_time_str} {activity['activity']} {activity['comments']} [{activity['owner']['first_name']}] \n"
-    
-# #       activity_text += current_activity
-      
-# #         for participant in 
-
-# #     return activity_text
-#     activities_df.to_string(index=False, justify='center', col_space=14)
-#     act_str = act_df.to_string(index=False, justify='center', col_space=14)
-#     return act_str
-
     
       
     
