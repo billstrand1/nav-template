@@ -92,7 +92,7 @@ class ActivitiesSummaryComponent(ActivitiesSummaryComponentTemplate):
     print('ActivitiesSummaryComponent button_add_click called')    
     form = navigation.get_form()
     form.load_component(ActivitiesAddTemplate())
-    
+    self.refresh_activities()
 #       navigation.go_activities_add()
 
   def button_signup_click(self, **event_args):
