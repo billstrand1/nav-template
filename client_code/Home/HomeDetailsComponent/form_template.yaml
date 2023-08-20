@@ -30,4 +30,11 @@ components:
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: label_activities_detail
   layout_properties: {grid_position: 'QUZTGT,UEGITV'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: 11, font: menlo, spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_all_activitites
+  layout_properties: {grid_position: 'QRVTXT,FWGPEW'}
 is_package: true

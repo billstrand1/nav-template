@@ -9,7 +9,7 @@ from ... import navigation
 from ... import data_access
 from datetime import datetime
 from datetime import date
-
+from ... import Globals
 
 class HomeDetailsComponent(HomeDetailsComponentTemplate):
   def __init__(self, **properties):
@@ -51,6 +51,23 @@ class HomeDetailsComponent(HomeDetailsComponentTemplate):
     activities_message_1, activities_message_2 = anvil.server.call('get_user_or_spouse_activities_str', user, spouse)
     self.label_activities.text = activities_message_1
     self.label_activities_detail.text = activities_message_2
+    
+    self.label_all_activitites.text = self.get_all_activities_and_participants()
+
+  def get_all_activities_and_participants(self):    
+    activity_text = ''
+#     act_date_time_str = act_date_time.strftime("%a %b %d '%y, %-I:%M %p")
+    for activity in Globals.all_future_activities:
+      act_date_time_str = activity['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p")
+
+      current_activity = f"{act_date_time_str} {activity['activity']} {activity['comments']} [{activity['owner']['first_name']}] \n"
+    
+      activity_text += current_activity
+      
+#         for participant in 
+
+    return activity_text
+
     
       
     
