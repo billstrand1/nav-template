@@ -68,7 +68,7 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
   
   def sync_data(self):
     if not self.input_activity_title.text:
-      return"Activity Title is required."
+      return"Activity Venue Name is required."
     
     if not self.input_activity_date_picker.date:
       return"Date / Time is required.  Please note this is a 24 hour drop-down, and you must press the Apply button"
@@ -85,8 +85,8 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
     if self.input_check_box_meals.checked and self.input_check_box_other.checked:
       return "Please select ONLY 1 Category."
     
-    if not self.input_activity_date_picker.date:
-      return"Date / Time is required.  Please note this is a 24 hour drop-down, and you must press the Apply button"
+#     if not self.input_activity_date_picker.date:
+#       return"Date / Time is required.  Please note this is a 24 hour drop-down, and you must press the Apply button"
     
     time_picked = self.input_activity_date_picker.date
     str_time_picked = time_picked.strftime('%H:%M:%S')
