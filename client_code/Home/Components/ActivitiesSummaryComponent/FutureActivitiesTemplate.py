@@ -76,7 +76,6 @@ class FutureActivitiesTemplate(FutureActivitiesTemplateTemplate):
       anvil.server.call('edit_activity', self.item, activity_dict)
       self.parent.raise_event('x-edit-activity', activity=activity_dict)
       
-#       anvil.server.call('update_score', self.item, activity_copy)
     message = f"Update recorded, thanks {user['first_name']}!"
     n = Notification(message)
     n.show()

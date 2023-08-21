@@ -25,7 +25,7 @@ def update_activity(activity, activity_dict):
 
 
 @anvil.server.callable
-@anvil.server.background_task
+# @anvil.server.background_task
 def get_all_future_activities(): 
   print('activities: get_all_future_activities called')
   all_future_activities = app_tables.activities.search(
@@ -44,16 +44,8 @@ def get_all_future_activities():
     other=True, act_date_time=q.greater_than_or_equal_to(date.today()))
   
   return all_future_activities, future_golf, future_dinners, future_other
+ 
   
-# #Work on @anvil.server.background_task
-# TypeError: This anvil.private.BackgroundTask object is not iterable
-
-# @anvil.server.background_task
-# def get_past_activities_background():
-#   print('activities: get_past_activities background called')
-#   return app_tables.activities.search(
-#     tables.order_by("act_date_time", ascending=True), act_date_time=q.less_than(date.today()))
-
 @anvil.server.callable
 def get_past_activities():
 #   print('activities: get_past_activities called')
@@ -95,6 +87,7 @@ def delete_activity(activity):
 #     Globals.all_activities, Globals.future_golf, Globals.future_dinners, Globals.future_other = get_all_future_activities()
 
 #billstrand1@yahoo.com
+# TODO: Timezone is an issue.  Get rid of the offset.
 #'act_date_time': datetime.datetime(2023, 7, 17, 9, 0, tzinfo=<anvil.tz.tzoffset (-5.0 hour offset)>)  Need to get the offset fixed
 @anvil.server.callable
 def edit_activity(activity, activity_dict):
