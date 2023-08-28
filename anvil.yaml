@@ -15,6 +15,9 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
+- source: /runtime/services/anvil/secrets.yml
+  client_config: {}
+  server_config: {}
 startup: {type: form, module: Home}
 package_name: Nav_Template
 allow_embedding: true
@@ -163,5 +166,9 @@ db_schema:
     - name: created
       admin_ui: {width: 200}
       type: datetime
+secrets:
+  weather_api:
+    value: {? '' : k23eDqOuFYLOHsIwIISpR+xhgCAAiK6dQ7BnU5OOu2FOna52BmEGcyEyZZZJf+E7oV7sp5VgNpR1pxjVFZwBMM1XQX31PyfPSOnfoPK02fdU2/27uxb0GYxNKFkuH4kaduN3dWN2Kz3uyJpFjo0MjiO5/DKp/cJq5DjAFcoDiA==}
+    type: secret
 uplink_visible: true
 renamed: true

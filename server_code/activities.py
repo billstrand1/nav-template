@@ -1,3 +1,4 @@
+import anvil.secrets
 import anvil.email
 import anvil.users
 import anvil.tables as tables
@@ -88,6 +89,7 @@ def delete_activity(activity):
 
 #billstrand1@yahoo.com
 # TODO: Timezone is an issue.  Get rid of the offset.
+#Testing on 8/15 tee times, 10:10 is before 10:00
 #'act_date_time': datetime.datetime(2023, 7, 17, 9, 0, tzinfo=<anvil.tz.tzoffset (-5.0 hour offset)>)  Need to get the offset fixed
 @anvil.server.callable
 def edit_activity(activity, activity_dict):
