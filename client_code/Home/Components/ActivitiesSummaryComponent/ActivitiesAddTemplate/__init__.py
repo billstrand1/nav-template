@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 from ..... import data_access
 from ..... import navigation
 from ..... import Globals
-from datetime import datetime
+from datetime import datetime, timezone
 from datetime import date
 '''
 Problem with New activity not showing up in summary, need to Update Globals somehow.
@@ -50,7 +50,8 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
     print('removing tzinfo')
     activity_date = self.input_activity_date_picker.date
     print(f"before: {activity_date}")
-    activity_date = activity_date.replace(tzinfo=None)
+    activity_date.astimezone(timezone.utc)
+#     activity_date = activity_date.replace(tzinfo=None)
     print(f"after: {activity_date}")      
     
     anvil.server.call('add_activity', self.input_activity_title.text, 
