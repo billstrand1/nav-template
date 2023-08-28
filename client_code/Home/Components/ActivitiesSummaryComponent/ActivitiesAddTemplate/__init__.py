@@ -50,8 +50,12 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
     print('removing tzinfo')
     activity_date = self.input_activity_date_picker.date
     print(f"before: {activity_date}")
-    activity_date.astimezone(timezone.utc)
+#     activity_date.astimezone(timezone.utc)
 #     activity_date = activity_date.replace(tzinfo=None)
+    
+    activity_date = datetime(activity_date, anvil.tz.tzoffset(hours=5))
+#     activity_date(anvil.tz.tzoffset(hours=5))
+
     print(f"after: {activity_date}")      
     
     anvil.server.call('add_activity', self.input_activity_title.text, 

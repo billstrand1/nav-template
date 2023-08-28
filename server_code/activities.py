@@ -5,7 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-from datetime import datetime
+from datetime import datetime, timezone
 from datetime import date
 import pandas as pd
 # from . import Globals
@@ -95,6 +95,9 @@ def delete_activity(activity):
 def edit_activity(activity, activity_dict):
     if app_tables.activities.has_row(activity):
       print('activities: edit_activity called')
+      
+#       activity_dict['act_date_time'] = activity_dict['act_date_time'].astimezone(timezone.utc)
+
       activity.update(**activity_dict)  
       
       #Need to update Participation date / time also:

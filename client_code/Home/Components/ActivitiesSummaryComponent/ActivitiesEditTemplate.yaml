@@ -31,11 +31,11 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''activity'']', writeback: true}
   - type: DatePicker
-    properties: {role: null, align: left, max_date: '', pick_time: true, tooltip: '',
-      placeholder: Date & Time (24 Hr Clock), border: '', enabled: true, foreground: '',
-      visible: true, font_size: null, font: '', spacing_above: small, spacing_below: small,
-      italic: false, date: '', min_date: '', background: '', bold: false, underline: false,
-      format: ''}
+    properties: {role: null, align: left, max_date: '', pick_time: true, tooltip: 'Pick
+        date & time, then hit apply.', placeholder: Date & Time (24 Hr Clock), border: '',
+      enabled: true, foreground: '', visible: true, font_size: null, font: '', spacing_above: small,
+      spacing_below: small, italic: false, date: '', min_date: '', background: '',
+      bold: false, underline: false, format: ''}
     name: input_activity_date_picker
     layout_properties: {grid_position: 'GADPOZ,THKBBT'}
     data_bindings:
