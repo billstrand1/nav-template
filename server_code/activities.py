@@ -99,7 +99,7 @@ def edit_activity(activity, activity_dict):
       
       #Need to update Participation date / time also:
       print(f"Activity Updated, dict date= {activity_dict['act_date_time']}")
-      new_date = activity_dict['act_date_time']
+#       new_date = activity_dict['act_date_time']
       participants_results = app_tables.participation.search(activity=activity)
       for participant in participants_results:
         print(f"Changing date for {participant['participant']['first_name']} ")
