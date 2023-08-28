@@ -50,7 +50,7 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
     print('removing tzinfo')
     activity_date = self.input_activity_date_picker.date
     print(f"before: {activity_date}")
-    activity_date.astimezone(timezone.utc)
+    activity_date = activity_date.astimezone(timezone.utc)
 #     activity_date = activity_date.replace(tzinfo=None)
     print(f"after: {activity_date}")      
     

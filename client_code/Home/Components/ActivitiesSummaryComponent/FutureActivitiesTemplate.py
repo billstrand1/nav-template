@@ -38,42 +38,15 @@ class FutureActivitiesTemplate(FutureActivitiesTemplateTemplate):
     activity_dict = dict(list(self.item))
     user = data_access.the_user()
     print('FutureActivitiesTemplate link_edit_click called')
-    #from Add Activity code, need to catch more than one Activity, and Midnight.
-    #NEED TO FIGURE OUT HOW TO DO ERROR MESSAGES IN ALERT BOXES
-#     self.label_error_msg.visible = False
-    
-#     error = self.sync_data()
-#     if error:
-#       self.label_error_msg.text = error
-#       self.label_error_msg.visible = True      
-#       return
-    
-#     def sync_data(self):
-#       if not self.input_activity_title.text:
-#         return"Activity Title is required."
+    if not self.input_check_box_golf.checked and not self.input_check_box_meals.checked and not self.input_check_box_other.checked:
 
-#       if not self.input_activity_date_picker.date:
-#         return"Date / Time is required.  Please note this is a 24 hour drop-down, and you must press the Apply button"
-
-#       if not self.input_check_box_golf.checked and not self.input_check_box_meals.checked and not self.input_check_box_other.checked:
-#         return"Please select a Category."
-
-#       if self.input_check_box_golf.checked and self.input_check_box_meals.checked:
-#         return "Please select ONLY 1 Category."
-
-#       if self.input_check_box_golf.checked and self.input_check_box_other.checked:
-#         return "Please select ONLY 1 Category."
-
-#       if self.input_check_box_meals.checked and self.input_check_box_other.checked:
-#         return "Please select ONLY 1 Category."
-
-#       return None    
-    #END Add Activity code, need to catch more than one Activity, and Midnight.
-    
     
     if alert(content=ActivitiesEditTemplate(item=activity_dict), title="Update Activity Info",
              large=True, buttons=[("Save", True), ("Cancel", False)]):      
       anvil.server.call('edit_activity', self.item, activity_dict)
+      
+      activity_date = activity_date.astimezone(timezone.utc)
+
       self.parent.raise_event('x-edit-activity', activity=activity_dict)
       
     message = f"Update recorded, thanks {user['first_name']}!"
