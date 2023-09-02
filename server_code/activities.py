@@ -63,6 +63,7 @@ def add_activity(activity_title, activity_comments,
                  input_check_box_meals, input_check_box_other,
                  activity_user):
   print('activities: add_activity called')
+  input_activity_date_picker = input_activity_date_picker.replace(tzinfo=None)
   app_tables.activities.add_row(activity=activity_title, comments=activity_comments,act_date_time=input_activity_date_picker,
                                golf=input_check_box_golf, dinner=input_check_box_meals, other=input_check_box_other,
                                owner=activity_user)
@@ -98,7 +99,7 @@ def edit_activity(activity, activity_dict):
       print('activities: edit_activity called')
       
 #       activity_dict['act_date_time'] = activity_dict['act_date_time'].astimezone(timezone.utc)
-
+      activity_dict['act_date_time'] = activity_dict['act_date_time'].replace(tzinfo=None)
       activity.update(**activity_dict)  
       
       #Need to update Participation date / time also:
@@ -108,7 +109,7 @@ def edit_activity(activity, activity_dict):
       for participant in participants_results:
         print(f"Changing date for {participant['participant']['first_name']} ")
 #         participant['participation_date_time'] = new_date
-        participant['participation_date_time'] = activity_dict['act_date_time']
+        participant['participation_date_time'] = activity_dict['act_date_time'].replace(tzinfo=None)
       
     else:
       raise Exception("Activity does not exist")

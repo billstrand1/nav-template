@@ -72,7 +72,7 @@ class FutureActivitiesTemplate(FutureActivitiesTemplateTemplate):
     
     
     if alert(content=ActivitiesEditTemplate(item=activity_dict), title="Update Activity Info",
-             large=True, buttons=[("Save", True), ("Cancel", False)]):      
+             large=True, buttons=[("Save", True), ("Cancel", False)]):
       anvil.server.call('edit_activity', self.item, activity_dict)
       self.parent.raise_event('x-edit-activity', activity=activity_dict)
       
