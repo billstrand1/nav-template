@@ -76,6 +76,16 @@ class FutureActivitiesSignupTemplate(FutureActivitiesSignupTemplateTemplate):
     message = anvil.server.call('add_participant', self.item, user, sign_up_name, spouse, date_time, comment)  
     alert(message)
 
+    
+    '''
+Above: need to add a dropdown for all participants. 
+Thank about using the user['couple_name'] as the default setting?
+
+Dropdown Names from Data Table:
+self.drop_down_names.items = [(r["full_name"],r) for r in app_tables.users.search(tables.order_by('full_name', ascending=True))]   
+player = self.drop_down_names.selected_value   
+    
+    '''
     self.refresh_data_bindings()
     self.update_panel()
   
