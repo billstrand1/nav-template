@@ -98,17 +98,14 @@ def edit_activity(activity, activity_dict):
     if app_tables.activities.has_row(activity):
       print('activities: edit_activity called')
       
-#       activity_dict['act_date_time'] = activity_dict['act_date_time'].astimezone(timezone.utc)
       activity_dict['act_date_time'] = activity_dict['act_date_time'].replace(tzinfo=None)
       activity.update(**activity_dict)  
       
       #Need to update Participation date / time also:
       print(f"Activity Updated, dict date= {activity_dict['act_date_time']}")
-#       new_date = activity_dict['act_date_time']
       participants_results = app_tables.participation.search(activity=activity)
       for participant in participants_results:
         print(f"Changing date for {participant['participant']['first_name']} ")
-#         participant['participation_date_time'] = new_date
         participant['participation_date_time'] = activity_dict['act_date_time'].replace(tzinfo=None)
       
     else:
