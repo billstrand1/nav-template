@@ -32,12 +32,12 @@ info = [
 '''
 TODO
 1. Need to make sure that if an activity is edited, the participation table is edited also.
-Currently, the date-time of the activity is loaded in the participation table, need to remove that.
+NO: Currently, the date-time of the activity is loaded in the participation table, need to remove that.
 
 1.  Try to make the app faster by loading participants in the background. 
 2.  You will be prompted to sign up when you create an activity, not requiring you to take the extra step to sign up. 
 3.  You will be able to sign up everyone, either as couples or individually.  This signup can be edited/deleted by you or that person/couple. 
-4.  Create a summary for the home page that lists all activities and participants, similar to the current summary for you and your spouse. 
+DONE: 4.  Create a summary for the home page that lists all activities and participants, similar to the current summary for you and your spouse. 
 
 
 
