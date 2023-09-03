@@ -53,7 +53,7 @@ class ActivitiesAddTemplate(ActivitiesAddTemplateTemplate):
 #     activity_date.astimezone(timezone.utc)
 #     activity_date = activity_date.replace(tzinfo=None)
     
-    activity_date = datetime(activity_date, anvil.tz.tzoffset(hours=5))
+    activity_date = activity_date.replace(tzinfo=None)
 #     activity_date(anvil.tz.tzoffset(hours=5))
 
     print(f"after: {activity_date}")      
