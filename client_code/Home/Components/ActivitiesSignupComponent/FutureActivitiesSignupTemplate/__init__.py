@@ -76,7 +76,7 @@ class FutureActivitiesSignupTemplate(FutureActivitiesSignupTemplateTemplate):
     message = anvil.server.call('add_participant', self.item, user, sign_up_name, spouse, date_time, comment)  
     alert(message)
 
-    self.refresh_data_bindings()
+#     self.refresh_data_bindings()
     self.update_panel()
     
     '''
