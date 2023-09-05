@@ -12,10 +12,6 @@ from .. import data_access
 
 '''
 TODO:  Check Home Anon, Home Details Main Component contents
-Home Details: working on summarizing Future activities for user or spouse
-(if any) and listing there.
-
-Need to make sure any deleted Activities also deletes Participants.
 
 
 '''

@@ -76,6 +76,8 @@ class FutureActivitiesSignupTemplate(FutureActivitiesSignupTemplateTemplate):
     message = anvil.server.call('add_participant', self.item, user, sign_up_name, spouse, date_time, comment)  
     alert(message)
 
+    self.refresh_data_bindings()
+    self.update_panel()
     
     '''
 Above: need to add a dropdown for all participants. 
@@ -86,8 +88,7 @@ self.drop_down_names.items = [(r["full_name"],r) for r in app_tables.users.searc
 player = self.drop_down_names.selected_value  
     
     '''
-    self.refresh_data_bindings()
-    self.update_panel()
+
   
 
 
