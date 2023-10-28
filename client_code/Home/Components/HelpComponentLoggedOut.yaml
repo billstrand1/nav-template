@@ -92,3 +92,4 @@ components:
       grid_position: LKTDIB,DMUIWV
     event_bindings: {click: submit_button_click}
 container: {type: ColumnPanel}
+custom_component: true

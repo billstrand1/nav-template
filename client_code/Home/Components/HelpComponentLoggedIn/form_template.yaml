@@ -73,3 +73,6 @@ components:
       grid_position: LKTDIB,DMUIWV
     event_bindings: {click: submit_button_click}
 is_package: true
+custom_component: true
+properties:
+- {name: prop, type: string, default_value: default, default_binding_prop: true}
