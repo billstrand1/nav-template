@@ -39,6 +39,7 @@ NO: Currently, the date-time of the activity is loaded in the participation tabl
 3.  You will be able to sign up everyone, either as couples or individually.  This signup can be edited/deleted by you or that person/couple. 
 DONE: 4.  Create a summary for the home page that lists all activities and participants, similar to the current summary for you and your spouse. 
 
+#3 above needs to be added to all of the other sign-up apps.
 
 
 
