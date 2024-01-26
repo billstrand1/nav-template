@@ -189,12 +189,16 @@ def get_user_or_spouse_activities_str(user, spouse):
 @anvil.server.callable
 def get_all_activities_and_participants(): 
   print('get_all_activities_and_participants called')
-  activity_text = 'Summary of Activities and Participants: \n'  
+  activity_text = 'Summary of All Planned Activities [Organizer] and Participants: \n'  
   all_future_activities = app_tables.activities.search(tables.order_by("act_date_time", ascending=True), act_date_time=q.greater_than_or_equal_to(date.today()))
   
   for r in all_future_activities:
     date_and_time = r['act_date_time'].strftime("%a %b %d '%y, %-I:%M %p")
     activity = r['activity']
+    if r['golf']:
+      activity = 'Golf: ' + activity
+    elif r['dinner']:
+      
 #     print(activity)
     comments = r['comments']
     owner = f"[{r['owner']['first_name']}]"
