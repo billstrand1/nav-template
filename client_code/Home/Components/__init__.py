@@ -32,16 +32,18 @@ for delete button on RowTemplate:
       
 
   
-  
-TravelComponent
-  Display like shown, make an Update button so they can add/change their travel schedules
-  Try to make it a Repeating Panel with an edit/delete button must be Admin or Created by User.
+
   
 Golf Sign-up Component
   Log-in required
   Make a RepeatingPanel similar to the BookingApp allowing delete button must be Admin or Created by User
   
 Admin component:
-  
+
+   
+TravelComponent
+  Update to allow Single travel
+  Display like shown, make an Update button so they can add/change their travel schedules as couple or single
+  Try to make it a Repeating Panel with an edit/delete button must be Admin or Created by User.
 
 '''

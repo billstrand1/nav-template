@@ -168,11 +168,11 @@ class Home(HomeTemplate):
     navigation.go_home()
 
   #Not using Register button at this time - invisible / not enabled
+  # Add phone, couple's name, etc. entry form after registration
   def btn_register_click(self, **event_args):
     user = anvil.users.signup_with_form(allow_cancel=True)
     navigation.go_home()
     
-  #TODO: Add phone, couple's name, etc. entry form after registration
     
   #------------------------------LINK CLICKS      
   def link_home_click(self, **event_args):
