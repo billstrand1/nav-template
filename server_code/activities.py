@@ -140,6 +140,7 @@ def add_participant(activity, participant, sign_up_name, spouse, date_time, comm
 @anvil.server.callable  
 def get_user_or_spouse_activities_str(user, spouse): 
   #Returns 2 messages to display on the HomeDetail page
+  
     print(f"Date today is {date.today()}")
 #   return 'Message 1', 'Message 2'
 
@@ -169,7 +170,18 @@ def get_user_or_spouse_activities_str(user, spouse):
       #go thru participation table and pull out activities
       act_date_time = activity['activity']['act_date_time']
       act_date_time_str = act_date_time.strftime("%a %b %d '%y, %-I:%M %p") + ' | '
-      activity_name = activity['activity']['activity'] + ' | '
+
+      #TODO: Work on getting prefix to activity here:
+      
+      activity_name = activity['activity']['activity']
+      if activity['activity']['golf']:
+        activity_name = 'Golf: ' + activity_name + ' | '
+      elif activity['activity']['dinner']:
+        activity_name= 'Dining: ' + activity_name + ' | '
+      elif activity['activity']['other']:
+        activity_name = 'Other: ' + activity_name + ' | '
+        
+      # activity_name = activity['activity']['activity'] + ' | '
       sign_up_name = activity['sign_up_name'] + ' | '
       comment = activity['comment']
 #       users_activities += [act_date_time_str, activity_name, sign_up_name]
@@ -198,7 +210,9 @@ def get_all_activities_and_participants():
     if r['golf']:
       activity = 'Golf: ' + activity
     elif r['dinner']:
-      
+      activity = 'Dining: ' + activity
+    elif r['other']:
+      activity = 'Other: ' + activity
 #     print(activity)
     comments = r['comments']
     owner = f"[{r['owner']['first_name']}]"
