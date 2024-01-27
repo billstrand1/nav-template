@@ -35,52 +35,70 @@ class FutureActivitiesTemplate(FutureActivitiesTemplateTemplate):
     
 
   def link_edit_click(self, **event_args):
-    #Figure out why it's a dict of a list???
+    #Test with new 
+    print('ActivitiesSummaryComponent link_edit_click called')    
+    form = navigation.get_form()
     activity_dict = dict(list(self.item))
+    form.load_component(ActivitiesEditTemplate(item=activity_dict))
+    # self.refresh_activities()
+    
+    #Figure out why it's a dict of a list???
+    
+    print(f"before: {activity_dict['act_date_time']}")
+    # activity_dict = dict(list(self.item))
+    activity_dict['act_date_time'] = activity_dict['act_date_time'].replace(tzinfo=None)
+    # print(f"after: {activity_dict['act_date_time']}")
     
     user = data_access.the_user()
     print('FutureActivitiesTemplate link_edit_click called')
     #from Add Activity code, need to catch more than one Activity, and Midnight.
+    
     #NEED TO FIGURE OUT HOW TO DO ERROR MESSAGES IN ALERT BOXES
-#     self.label_error_msg.visible = False
+    self.label_error_msg.visible = False
     
-#     error = self.sync_data()
-#     if error:
-#       self.label_error_msg.text = error
-#       self.label_error_msg.visible = True      
-#       return
+    error = self.sync_data()
+    if error:
+      self.label_error_msg.text = error
+      self.label_error_msg.visible = True      
+      return
     
-#     def sync_data(self):
-#       if not self.input_activity_title.text:
-#         return"Activity Title is required."
+    def sync_data(self):
+      if not self.input_activity_title.text:
+        return"Activity Title is required."
 
-#       if not self.input_activity_date_picker.date:
-#         return"Date / Time is required.  Please note this is a 24 hour drop-down, and you must press the Apply button"
+      if not self.input_activity_date_picker.date:
+        return"Date / Time is required.  Please note this is a 24 hour drop-down, and you must press the Apply button"
 
-#       if not self.input_check_box_golf.checked and not self.input_check_box_meals.checked and not self.input_check_box_other.checked:
-#         return"Please select a Category."
+      if not self.input_check_box_golf.checked and not self.input_check_box_meals.checked and not self.input_check_box_other.checked:
+        return"Please select a Category."
 
-#       if self.input_check_box_golf.checked and self.input_check_box_meals.checked:
-#         return "Please select ONLY 1 Category."
+      if self.input_check_box_golf.checked and self.input_check_box_meals.checked:
+        return "Please select ONLY 1 Category."
 
-#       if self.input_check_box_golf.checked and self.input_check_box_other.checked:
-#         return "Please select ONLY 1 Category."
+      if self.input_check_box_golf.checked and self.input_check_box_other.checked:
+        return "Please select ONLY 1 Category."
 
-#       if self.input_check_box_meals.checked and self.input_check_box_other.checked:
-#         return "Please select ONLY 1 Category."
+      if self.input_check_box_meals.checked and self.input_check_box_other.checked:
+        return "Please select ONLY 1 Category."
 
-#       return None    
+      return None    
     #END Add Activity code, need to catch more than one Activity, and Midnight.
     
     
-    if alert(content=ActivitiesEditTemplate(item=activity_dict), title="Update Activity Info",
-             large=True, buttons=[("Save", True), ("Cancel", False)]):
+    # if alert(content=ActivitiesEditTemplate(item=activity_dict), title="Update Activity Info",
+    #          large=True, buttons=[("Save", True), ("Cancel", False)]):
+
+
+ #-------Need to make Submit Edit Click:
+               
       anvil.server.call('edit_activity', self.item, activity_dict)
-      self.parent.raise_event('x-edit-activity', activity=activity_dict)
+      self.refresh_data_bindings()
+      # self.parent.raise_event('x-edit-activity', activity=activity_dict)
       
     message = f"Update recorded, thanks {user['first_name']}!"
     n = Notification(message)
     n.show()
+    navigation.go_activities()
     
 
 
