@@ -54,7 +54,7 @@ def get_past_activities():
 #   return anvil.server.launch_background_task('get_past_activities_background')
   print('activities: get_past_activities called')
   return app_tables.activities.search(
-    tables.order_by("act_date_time", ascending=True), act_date_time=q.less_than(date.today()))
+    tables.order_by("act_date_time", ascending=False), act_date_time=q.less_than(date.today()))
 
 
 @anvil.server.callable

@@ -5,7 +5,7 @@ components:
   layout_properties: {column: HGJHIN}
   data_bindings:
   - {property: text, code: 'self.item[''act_date_time''].strftime("%a %b %d ''%y,
-      %-I:%M %p %z")'}
+      %-I:%M %p")', writeback: false}
 - type: Label
   properties: {}
   name: label_2
