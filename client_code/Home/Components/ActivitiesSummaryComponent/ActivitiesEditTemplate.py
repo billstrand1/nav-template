@@ -23,7 +23,7 @@ class ActivitiesEditTemplate(ActivitiesEditTemplateTemplate):
     print('ActivitiesEditTemplate opened')
           
     # print(f"before: {activity_dict['act_date_time']}")
-    # activity_dict = dict(list(self.item))
+    activity_dict = dict(list(self.item))
     activity_dict['act_date_time'] = activity_dict['act_date_time'].replace(tzinfo=None)
     # print(f"after: {activity_dict['act_date_time']}")
     
@@ -34,11 +34,7 @@ class ActivitiesEditTemplate(ActivitiesEditTemplateTemplate):
     #NEED TO FIGURE OUT HOW TO DO ERROR MESSAGES IN ALERT BOXES
     self.label_error_msg.visible = False
     
-    error = self.sync_data()
-    if error:
-      self.label_error_msg.text = error
-      self.label_error_msg.visible = True      
-      return
+
     
     def sync_data(self):
       if not self.input_activity_title.text:
@@ -61,27 +57,37 @@ class ActivitiesEditTemplate(ActivitiesEditTemplateTemplate):
 
       return None    
     #END Add Activity code, need to catch more than one Activity, and Midnight.
-    
+
+      
     
     # if alert(content=ActivitiesEditTemplate(item=activity_dict), title="Update Activity Info",
     #          large=True, buttons=[("Save", True), ("Cancel", False)]):
 
 
  #-------Need to make Submit Edit Click:
-               
-      anvil.server.call('edit_activity', self.item, activity_dict)
-      self.refresh_data_bindings()
+           
+      
       # self.parent.raise_event('x-edit-activity', activity=activity_dict)
       
-    message = f"Update recorded, thanks {user['first_name']}!"
-    n = Notification(message)
-    n.show()
-    navigation.go_activities()
+
     
 
-  def button_submit_edit_click(self, **event_args):
-    pass
 
+
+  def button_submit_edit_click(self, **event_args):
+
+    error = self.sync_data()
+    if error:
+      self.label_error_msg.text = error
+      self.label_error_msg.visible = True      
+      return     
+      
+    anvil.server.call('edit_activity', self.item, activity_dict)
+    self.refresh_data_bindings()
+    message = f"Update recorded, thanks {user['first_name']}!"
+    navigation.go_activities()
+
+  
   def outlined_button_1_click(self, **event_args):
     navigation.go_activities()
 

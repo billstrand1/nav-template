@@ -95,7 +95,7 @@ components:
     event_bindings: {click: button_submit_edit_click}
   - type: Button
     properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: false, text: Return to Activity Summary, font_size: null,
+      foreground: '', visible: true, text: Return to Activity Summary, font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: outlined_button_1
