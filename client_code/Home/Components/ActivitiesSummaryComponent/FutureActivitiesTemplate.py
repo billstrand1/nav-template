@@ -35,7 +35,9 @@ class FutureActivitiesTemplate(FutureActivitiesTemplateTemplate):
     
 
   def link_edit_click(self, **event_args):
+    #Figure out why it's a dict of a list???
     activity_dict = dict(list(self.item))
+    
     user = data_access.the_user()
     print('FutureActivitiesTemplate link_edit_click called')
     #from Add Activity code, need to catch more than one Activity, and Midnight.
