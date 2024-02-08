@@ -110,7 +110,7 @@ db_schema:
       admin_ui: {width: 116}
       type: bool
     - name: order_of_menu_items
-      admin_ui: {width: 91}
+      admin_ui: {order: 2, width: 179}
       type: number
   participation:
     title: participation
