@@ -18,8 +18,8 @@ class ContactsComponent(ContactsComponentTemplate):
     print(f"getting {user['first_name']} from Contacts")
     form = navigation.get_form()
     
-    if user:
-      form.label_name.text = 'Hi ' + user['first_name'] + ', '
+    # if user:
+    #   form.label_name.text = 'Hi ' + user['first_name'] + ', '
 
     self.contact_panel.items = anvil.server.call('get_directory')
     
