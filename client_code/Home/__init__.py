@@ -30,7 +30,7 @@ class Home(HomeTemplate):
     if user:
       print(f" User is {user['first_name']}")
     
-    
+    self.label_1.text = f"Our URL hash is: {get_url_hash()}"
     #------------------CREATE MENU LINKS, UPDATE BASED UPON 'FEATURES' TABLE
     #Create the Menu of Links, then update the navigation module
     self.link_home = Link(text='Home', icon='fa:home')
