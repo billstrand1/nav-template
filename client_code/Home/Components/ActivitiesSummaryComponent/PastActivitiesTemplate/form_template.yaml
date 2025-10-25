@@ -1,16 +1,15 @@
-container: {type: DataRowPanel}
 components:
-- type: Label
-  properties: {}
-  name: label_1
+- data_bindings:
+  - {code: 'self.item[''act_date_time''].strftime("%a %b %d ''%y, %-I:%M %p")', property: text}
   layout_properties: {column: HGJHIN}
-  data_bindings:
-  - {property: text, code: 'self.item[''act_date_time''].strftime("%a %b %d ''%y,
-      %-I:%M %p")'}
-- type: Label
+  name: label_1
   properties: {}
-  name: label_2
+  type: Label
+- data_bindings:
+  - {code: 'f" [{self.item[''owner''][''first_name'']}]  " +self.item[''comments'']', property: text}
   layout_properties: {column: JNYMFX}
-  data_bindings:
-  - {property: text, code: 'f" [{self.item[''owner''][''first_name'']}]  " +self.item[''comments'']'}
+  name: label_2
+  properties: {}
+  type: Label
+container: {type: DataRowPanel}
 is_package: true

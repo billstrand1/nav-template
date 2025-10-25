@@ -1,115 +1,77 @@
 components:
-- type: ColumnPanel
-  properties: {role: outlined-card, col_widths: '{"CGZODS":45,"RUJLUB":10,"ZQAHGR":10,"BIKKXT":30,"YXXGQC":10,"NJLHPQ":35,"MPMESP":25}'}
-  name: outlined_card_1
-  layout_properties: {grid_position: 'OMOTJS,TOCLYT'}
-  components:
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Edit Activity, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+- components:
+  - layout_properties: {grid_position: 'IPKRRW,NJLHPQ'}
     name: label_1
-    layout_properties: {grid_position: 'IPKRRW,NJLHPQ'}
-  - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '#ff2600',
-      visible: true, text: 'Please select the time below the calendar (24hr clock),
-        then press the Apply button.', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_3
-    layout_properties:
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Edit Activity, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties:
       col_widths: {}
       grid_position: IPKRRW,MPMESP
-  - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Title of Activity,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
-    name: input_activity_title
+    name: label_3
+    properties: {align: right, background: '', bold: false, border: '', font: '', font_size: null, foreground: '#ff2600', icon: '', icon_align: left, italic: true, role: null, spacing_above: small, spacing_below: small, text: 'Please select the time below the calendar (24hr clock), then press the Apply button.', tooltip: '', underline: false, visible: true}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''activity'']', property: text, writeback: true}
     layout_properties: {grid_position: 'GADPOZ,CGZODS'}
-    data_bindings:
-    - {property: text, code: 'self.item[''activity'']', writeback: true}
-  - type: DatePicker
-    properties: {role: null, align: left, max_date: '', pick_time: true, tooltip: 'Pick
-        date & time, then hit apply.', placeholder: Date & Time (24 Hr Clock), border: '',
-      enabled: true, foreground: '', visible: true, font_size: null, font: '', spacing_above: small,
-      spacing_below: small, italic: false, date: '', min_date: '', background: '',
-      bold: false, underline: false, format: ''}
-    name: input_activity_date_picker
+    name: input_activity_title
+    properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: Title of Activity, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+    type: TextBox
+  - data_bindings:
+    - {code: 'self.item[''act_date_time'']', property: date, writeback: true}
     layout_properties: {grid_position: 'GADPOZ,THKBBT'}
-    data_bindings:
-    - {property: date, code: 'self.item[''act_date_time'']', writeback: true}
-  - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Comments,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
-    name: input_activity_comments
+    name: input_activity_date_picker
+    properties: {align: left, background: '', bold: false, border: '', date: '', enabled: true, font: '', font_size: null, foreground: '', format: '', italic: false, max_date: '', min_date: '', pick_time: true, placeholder: Date & Time (24 Hr Clock), role: null, spacing_above: small, spacing_below: small, tooltip: 'Pick date & time, then hit apply.', underline: false, visible: true}
+    type: DatePicker
+  - data_bindings:
+    - {code: 'self.item[''comments'']', property: text, writeback: true}
     layout_properties:
       col_widths: {}
       grid_position: CBCSIN,EAXRCY
-    data_bindings:
-    - {property: text, code: 'self.item[''comments'']', writeback: true}
-  - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Category:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    name: input_activity_comments
+    properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: Comments, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+    type: TextBox
+  - layout_properties: {grid_position: 'FVNKAI,YXXGQC'}
     name: label_2
-    layout_properties: {grid_position: 'FVNKAI,YXXGQC'}
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', allow_indeterminate: false, visible: true, text: Golf, font_size: null,
-      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-      bold: false, checked: false, underline: false}
-    name: input_check_box_golf
+    properties: {align: right, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Category:', tooltip: '', underline: false, visible: true}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''golf'']', property: checked, writeback: true}
     layout_properties: {grid_position: 'FVNKAI,RUJLUB'}
-    data_bindings:
-    - {property: checked, code: 'self.item[''golf'']', writeback: true}
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', allow_indeterminate: false, visible: true, text: Dining, font_size: null,
-      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-      bold: false, checked: false, underline: false}
-    name: input_check_box_meals
+    name: input_check_box_golf
+    properties: {align: left, allow_indeterminate: false, background: '', bold: false, border: '', checked: false, enabled: true, font: '', font_size: null, foreground: '', italic: false, role: null, spacing_above: small, spacing_below: small, text: Golf, tooltip: '', underline: false, visible: true}
+    type: CheckBox
+  - data_bindings:
+    - {code: 'self.item[''dinner'']', property: checked, writeback: true}
     layout_properties: {grid_position: 'FVNKAI,ZQAHGR'}
-    data_bindings:
-    - {property: checked, code: 'self.item[''dinner'']', writeback: true}
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', allow_indeterminate: false, visible: true, text: Other Activity,
-      font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-      background: '', bold: false, checked: false, underline: false}
-    name: input_check_box_other
+    name: input_check_box_meals
+    properties: {align: left, allow_indeterminate: false, background: '', bold: false, border: '', checked: false, enabled: true, font: '', font_size: null, foreground: '', italic: false, role: null, spacing_above: small, spacing_below: small, text: Dining, tooltip: '', underline: false, visible: true}
+    type: CheckBox
+  - data_bindings:
+    - {code: 'self.item[''other'']', property: checked, writeback: true}
     layout_properties: {grid_position: 'FVNKAI,BIKKXT'}
-    data_bindings:
-    - {property: checked, code: 'self.item[''other'']', writeback: true}
-  - type: Button
-    properties: {role: filled-button, align: left, tooltip: '', border: '', enabled: false,
-      foreground: '', visible: true, text: Submit, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: button_submit_edit
+    name: input_check_box_other
+    properties: {align: left, allow_indeterminate: false, background: '', bold: false, border: '', checked: false, enabled: true, font: '', font_size: null, foreground: '', italic: false, role: null, spacing_above: small, spacing_below: small, text: Other Activity, tooltip: '', underline: false, visible: true}
+    type: CheckBox
+  - event_bindings: {click: button_submit_edit_click}
     layout_properties: {grid_position: 'BPEDLW,OAIRDQ'}
-    event_bindings: {click: button_submit_edit_click}
-  - type: Button
-    properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Return to Activity Summary, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: outlined_button_1
+    name: button_submit_edit
+    properties: {align: left, background: '', bold: false, border: '', enabled: false, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: Submit, tooltip: '', underline: false, visible: true}
+    type: Button
+  - event_bindings: {click: outlined_button_1_click}
     layout_properties:
       col_widths: {}
       grid_position: BPEDLW,QZNUZS
-    event_bindings: {click: outlined_button_1_click}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '#FF0000',
-    visible: false, text: ERROR MESSAGE, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
-  name: label_error_msg
-  layout_properties: {grid_position: 'IQXXJZ,SURVMP'}
-container:
+    name: outlined_button_1
+    properties: {align: right, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: tonal-button, spacing_above: small, spacing_below: small, text: Return to Activity Summary, tooltip: '', underline: false, visible: true}
+    type: Button
+  layout_properties: {grid_position: 'OMOTJS,TOCLYT'}
+  name: outlined_card_1
+  properties: {col_widths: '{"CGZODS":45,"RUJLUB":10,"ZQAHGR":10,"BIKKXT":30,"YXXGQC":10,"NJLHPQ":35,"MPMESP":25}', role: outlined-card}
   type: ColumnPanel
+- layout_properties: {grid_position: 'IQXXJZ,SURVMP'}
+  name: label_error_msg
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '#FF0000', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: ERROR MESSAGE, tooltip: '', underline: false, visible: false}
+  type: Label
+container:
   properties: {col_widths: '{}'}
+  type: ColumnPanel

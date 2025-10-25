@@ -1,12 +1,9 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Please Log-In, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: true, underline: false,
-    icon: ''}
+- layout_properties: {grid_position: 'CDISSN,SYJUVB'}
   name: label_1
-  layout_properties: {grid_position: 'CDISSN,SYJUVB'}
+  properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Please Log-In, tooltip: '', underline: false, visible: true}
+  type: Label
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true
